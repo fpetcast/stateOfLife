@@ -12,9 +12,16 @@ app.use(morgan('combined'))
 app.use(bodyParser.json())
 app.use(cors())
 
-app.get('/status', (req, res) => {
+app.get('/', (req, res) => {
     res.send({
-        message: 'Hi buddy',
+        message: 'Hi buddy, you\'re on express server',
+    })
+})
+
+
+app.post('/register', (req,res) => {
+    res.send({
+        message: 'User registered: ' + req.body.email,
     })
 })
 
